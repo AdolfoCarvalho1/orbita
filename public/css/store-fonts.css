@@ -1,0 +1,23 @@
+/* Self-hosted store faces. Archivo Black for display figures, JetBrains Mono for
+   every label, figure and measurement. No external font request at runtime. */
+@font-face {
+  font-family: 'Archivo Black';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(../assets/fonts/g108.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../assets/fonts/g100.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../assets/fonts/g101.ttf) format('truetype');
+}

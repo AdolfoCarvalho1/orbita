@@ -1,0 +1,358 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;500;700&family=Share+Tech+Mono&display=swap');
+
+.cmp { display: flex; flex-direction: column; gap: 2.5rem; }
+.dir { border: 3px solid #f2f0e9; background: #0d0d0d; overflow: hidden; }
+.dir.sel { box-shadow: 0 0 0 4px #d81f1f; }
+.dir > .cap { padding: 13px 18px; border-bottom: 3px solid #f2f0e9; display: flex; align-items: center; gap: 12px; font-family: 'JetBrains Mono', monospace; flex-wrap: wrap; }
+.dir > .cap .kick { background: #d81f1f; color: #0d0d0d; font-size: 10px; font-weight: 700; padding: 4px 8px; letter-spacing: 1px; }
+.dir > .cap .kick.grey { background: #2e2e2e; color: #f2f0e9; }
+.dir > .cap h3 { font-family: 'Archivo Black', sans-serif; font-size: 18px; margin: 0; color: #f2f0e9; text-transform: uppercase; letter-spacing: -.6px; }
+.dir > .cap .why { color: #8a8a85; font-size: 10.5px; margin-left: auto; }
+.panes { display: grid; grid-template-columns: 1.6fr 1fr; }
+.pane { border-right: 3px solid #f2f0e9; min-width: 0; }
+.pane:last-child { border-right: 0; }
+.pane > .lbl { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; color: #d81f1f; letter-spacing: 2px; padding: 6px 10px; border-bottom: 1px solid #333; text-transform: uppercase; }
+@media (max-width: 1050px) { .panes { grid-template-columns: 1fr; } .pane { border-right: 0; border-bottom: 3px solid #f2f0e9; } }
+.pick { display: flex; align-items: center; gap: 12px; padding: 11px 18px; border-top: 3px solid #f2f0e9; }
+.pick .btn { font-family: 'Archivo Black', sans-serif; font-size: 12px; text-transform: uppercase; background: #d81f1f; color: #0d0d0d; padding: 10px 20px; cursor: pointer; }
+.pick .btn:hover { background: #f2f0e9; }
+.pick .note { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; color: #8a8a85; }
+.ga { position: relative; overflow: hidden; background: #050914; }
+.ga svg { display: block; width: 100%; height: 100%; }
+.ga.ter { background: #0f1a10; }
+
+/* ══════════════ DIREÇÃO 1: PAINEL DE EMBARQUE ══════════════ */
+.gb { font-family: 'Archivo Black', sans-serif; color: #f2f0e9; }
+.gb .mono { font-family: 'JetBrains Mono', monospace; }
+.gb-top { display: flex; align-items: baseline; gap: 10px; padding: 10px 14px; }
+.gb-mark { font-size: 15px; letter-spacing: -.5px; }
+.gb-mark::first-letter { color: #d81f1f; }
+.gb-sub { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #8a8a85; letter-spacing: 1px; text-transform: uppercase; }
+.gb-sp { flex: 1; }
+.gb-nav { font-family: 'JetBrains Mono', monospace; font-size: 8px; margin-left: 12px; letter-spacing: 1px; }
+.gb-nav.dim { color: #8a8a85; }
+.gb-horizon { height: 3px; background: #d81f1f; }
+.gb-kicker { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #d81f1f; letter-spacing: 2px; padding: 14px 14px 5px; }
+.gb-h1 { font-size: 32px; line-height: .9; text-transform: uppercase; letter-spacing: -1.8px; padding: 0 14px 16px; }
+.gb-h1 em { font-style: normal; color: #d81f1f; }
+.gb-cols { display: flex; border-top: 3px solid #f2f0e9; border-bottom: 1px solid #444; }
+.gb-colh { flex: 0 0 46px; font-family: 'JetBrains Mono', monospace; font-size: 7px; color: #8a8a85; letter-spacing: 1px; padding: 5px 6px; }
+.gb-colh.c2 { flex: 0 0 96px; }
+.gb-colh.c3 { flex: 1; }
+.gb-colh.c4 { flex: 0 0 82px; text-align: right; padding-right: 10px; }
+.gb-row { display: flex; align-items: center; border-bottom: 1px solid #2a2a2a; cursor: pointer; }
+.gb-row:hover { background: #1a1a1a; }
+.gb-row.soon { opacity: .4; cursor: default; }
+.gb-row.soon:hover { background: none; }
+.gb-seq { flex: 0 0 46px; font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: #d81f1f; padding: 9px 6px; }
+.gb-cell { display: flex; align-items: center; gap: 6px; padding: 9px 6px; }
+.gb-cell.g2 { flex: 1; font-size: 12px; letter-spacing: -.3px; min-width: 0; }
+.gb-icn { color: #d81f1f; font-size: 11px; font-style: normal; }
+.gb-cell.c2 { flex: 0 0 96px; font-size: 8px; color: #a8a8a0; }
+.gb-cell.c3 { flex: 1; gap: 7px; }
+.gb-bar { flex: 1; height: 7px; background: #262626; display: block; min-width: 30px; }
+.gb-bar b { display: block; height: 100%; background: #f2f0e9; }
+.gb-cell.c3 em { font-style: normal; font-size: 8px; color: #a8a8a0; }
+.gb-cell.c4 { flex: 0 0 82px; justify-content: flex-end; padding-right: 10px; }
+.gb-go { font-style: normal; font-size: 9px; background: #d81f1f; color: #0d0d0d; padding: 6px 10px; letter-spacing: .5px; }
+.gb-no { font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #8a8a85; border: 1px solid #555; padding: 5px 8px; }
+.gb-foot { display: flex; align-items: center; gap: 10px; padding: 14px; }
+.gb-foot .mono { font-size: 8px; color: #8a8a85; letter-spacing: 1px; }
+.gb-support { font-style: normal; font-size: 10px; border: 2px solid #f2f0e9; padding: 6px 12px; letter-spacing: .5px; }
+
+.bp { display: flex; font-family: 'Archivo Black', sans-serif; color: #f2f0e9; }
+.bp .mono { font-family: 'JetBrains Mono', monospace; }
+.bp-main { flex: 1; min-width: 0; }
+.bp-head { display: flex; align-items: baseline; gap: 8px; padding: 10px 12px 8px; }
+.bp-seq { font-size: 8px; color: #d81f1f; letter-spacing: 1px; }
+.bp-dest { font-size: 17px; letter-spacing: -.6px; }
+.bp-scan { position: relative; }
+.bp-scan .ga { height: 108px; }
+.bp-stripes { height: 7px; background: repeating-linear-gradient(90deg, #f2f0e9 0 3px, #0d0d0d 3px 6px); opacity: .3; }
+.bp-seg { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 7px 12px; border-top: 1px solid #333; }
+.bp-seg .mono { font-size: 7px; color: #8a8a85; letter-spacing: 1px; }
+.bp-seg b { font-size: 8.5px; font-weight: 400; text-align: right; line-height: 1.35; }
+.bp-stub { flex: 0 0 108px; border-left: 3px solid #f2f0e9; position: relative; padding: 10px; text-align: center; }
+.bp-perf { position: absolute; left: -4px; top: 0; bottom: 0; width: 5px; background: repeating-linear-gradient(180deg, #0d0d0d 0 4px, transparent 4px 9px); }
+.bp-sth { font-size: 6.5px; color: #8a8a85; letter-spacing: 1px; margin-top: 7px; }
+.bp-sth:first-of-type { margin-top: 0; }
+.bp-gate { font-size: 26px; color: #d81f1f; line-height: 1; }
+.bp-cls { font-size: 11px; border: 2px solid #f2f0e9; padding: 3px 0; margin-top: 3px; }
+.bp-sys { font-family: 'JetBrains Mono', monospace; font-size: 7px; color: #a8a8a0; margin-top: 3px; }
+.bp-cta { font-size: 9px; background: #d81f1f; color: #0d0d0d; padding: 7px 4px; margin-top: 10px; line-height: 1.25; }
+.bp-bars { margin-top: 9px; height: 26px; background: repeating-linear-gradient(90deg, #f2f0e9 0 1px, transparent 1px 3px); opacity: .45; }
+
+/* ══════════════ DIREÇÃO 2: DORSO DE CAIXA / MANUAL ══════════════ */
+.bx { font-family: 'Archivo Black', sans-serif; color: #f2f0e9; }
+.bx .mono { font-family: 'JetBrains Mono', monospace; }
+.bx-top { display: flex; align-items: baseline; gap: 10px; padding: 10px 14px; border-bottom: 1px solid #333; }
+.bx-mark { font-size: 15px; letter-spacing: -.5px; }
+.bx-mark::first-letter { color: #d81f1f; }
+.bx-sp { flex: 1; }
+.bx-nav { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #8a8a85; letter-spacing: 1px; margin-left: 11px; }
+.bx-hero { display: flex; gap: 16px; padding: 16px 14px; }
+.bx-hero .ga { flex: 0 0 172px; height: 108px; border: 3px solid #f2f0e9; }
+.bx-hero .rt { flex: 1; min-width: 0; }
+.bx-hero .k { font-family: 'JetBrains Mono', monospace; font-size: 7.5px; color: #d81f1f; letter-spacing: 2px; }
+.bx-hero h1 { font-size: 30px; line-height: .9; text-transform: uppercase; letter-spacing: -1.7px; margin: 6px 0 0; }
+.bx-hero h1 u { text-decoration: none; color: #d81f1f; }
+.bx-hero .st { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #a8a8a0; margin-top: 8px; line-height: 1.6; }
+.bx-cta { display: flex; gap: 7px; margin-top: 10px; }
+.bx-btn { font-style: normal; font-size: 9px; background: #d81f1f; color: #0d0d0d; padding: 7px 12px; }
+.bx-btn.ghost { background: none; color: #f2f0e9; border: 2px solid #f2f0e9; }
+.bx-specs { border-top: 3px solid #f2f0e9; display: grid; grid-template-columns: 1fr 1fr; }
+.bx-spec { padding: 8px 12px; border-right: 1px solid #333; border-bottom: 1px solid #333; }
+.bx-spec:nth-child(2n) { border-right: 0; }
+.bx-spec .l { font-family: 'JetBrains Mono', monospace; font-size: 6.5px; color: #8a8a85; letter-spacing: 1px; }
+.bx-spec .v { font-size: 10px; margin-top: 3px; line-height: 1.3; }
+.bx-cont { padding: 12px 14px; }
+.bx-cont .l { font-family: 'JetBrains Mono', monospace; font-size: 7px; color: #d81f1f; letter-spacing: 2px; margin-bottom: 7px; }
+.bx-keys { display: flex; flex-wrap: wrap; gap: 5px; }
+.bx-key { font-family: 'JetBrains Mono', monospace; font-size: 8px; border: 1px solid #f2f0e9; padding: 3px 6px; }
+.bx-cont .d { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #8a8a85; margin-top: 7px; }
+.bx-foot { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-top: 1px solid #333; }
+.bx-foot .mono { font-size: 7.5px; color: #8a8a85; letter-spacing: 1px; }
+.bx-px { font-style: normal; font-size: 9px; border: 2px solid #f2f0e9; padding: 5px 11px; margin-left: auto; }
+
+.mn { font-family: 'Archivo Black', sans-serif; color: #f2f0e9; }
+.mn .mono { font-family: 'JetBrains Mono', monospace; }
+.mn-top { display: flex; align-items: center; gap: 8px; padding: 9px 12px; border-bottom: 1px solid #333; }
+.mn-top .seq { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #d81f1f; letter-spacing: 1px; }
+.mn-top .t { font-size: 14px; letter-spacing: -.4px; }
+.mn-top .sp { flex: 1; }
+.mn-price { font-family: 'JetBrains Mono', monospace; font-size: 8px; border: 1px solid #f2f0e9; padding: 2px 5px; }
+.mn-shot { height: 116px; border-bottom: 3px solid #f2f0e9; }
+.mn-rows { display: flex; gap: 6px; padding: 10px 12px; }
+.mn-row { flex: 1; border: 1px solid #333; height: 46px; }
+.mn-body { padding: 10px 12px; }
+.mn-body p { font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #a8a8a0; line-height: 1.7; margin: 0; }
+.mn-feats { margin-top: 10px; display: flex; flex-direction: column; gap: 4px; }
+.mn-feat { display: flex; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 7.5px; line-height: 1.4; }
+.mn-feat .bx-n { color: #d81f1f; }
+.mn-cta { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-top: 3px solid #f2f0e9; }
+.mn-cta .b { font-style: normal; font-size: 11px; background: #d81f1f; color: #0d0d0d; padding: 8px 16px; }
+.mn-cta .mono { font-size: 7px; color: #8a8a85; letter-spacing: 1px; margin-left: auto; }
+.mn-rate { display: flex; gap: 2px; }
+.mn-rate i { width: 9px; height: 9px; background: #f2f0e9; }
+.mn-rate i.off { background: #333; }
+
+/* ══════════════ DIREÇÃO 3: OSCILOSCÓPIO ══════════════ */
+.sc { font-family: 'JetBrains Mono', monospace; color: #f2f0e9; position: relative; }
+.sc-top { display: flex; align-items: center; gap: 9px; padding: 8px 12px; }
+.sc-mark { font-family: 'Archivo Black', sans-serif; font-size: 14px; letter-spacing: -.4px; }
+.sc-mark::first-letter { color: #d81f1f; }
+.sc-sp { flex: 1; }
+.sc-nav { font-size: 7.5px; color: #8a8a85; letter-spacing: 1px; margin-left: 10px; }
+.sc-grat { position: relative; border-top: 3px solid #f2f0e9; border-bottom: 3px solid #f2f0e9; padding: 12px 12px 10px; }
+.sc-grat::before { content: ''; position: absolute; inset: 0;
+  background-image: linear-gradient(to right, rgba(242,240,233,.09) 1px, transparent 1px), linear-gradient(to bottom, rgba(242,240,233,.09) 1px, transparent 1px);
+  background-size: 10% 25%; pointer-events: none; }
+.sc-in { position: relative; z-index: 1; }
+.sc-read { display: flex; align-items: flex-end; gap: 6px; margin-bottom: 8px; }
+.sc-read .k { font-size: 7px; color: #8a8a85; letter-spacing: 1.5px; }
+.sc-read .v { font-family: 'Archivo Black', sans-serif; font-size: 22px; line-height: 1; letter-spacing: -1px; }
+.sc-read .v.red { color: #d81f1f; }
+.sc-read .u { font-size: 8px; color: #a8a8a0; }
+.sc-meas { display: flex; flex-direction: column; gap: 9px; }
+.sc-ch { display: flex; align-items: center; gap: 9px; }
+.sc-ch .lb { flex: 0 0 20px; font-size: 8px; color: #d81f1f; }
+.sc-ch .nm { flex: 0 0 108px; font-family: 'Archivo Black', sans-serif; font-size: 10px; letter-spacing: -.3px; }
+.sc-ch .meter { flex: 1; height: 16px; border: 1px solid #4a4a4a; display: flex; }
+.sc-ch .meter i { display: block; height: 100%; }
+.sc-ch .meter .fg { background: #f2f0e9; }
+.sc-ch .meter .fg2 { background: #d81f1f; }
+.sc-ch .meter .tick { flex: 1; border-right: 1px solid #333; }
+.sc-ch .meter .tick:last-child { border-right: 0; }
+.sc-ch .rd { flex: 0 0 52px; font-size: 9px; text-align: right; color: #a8a8a0; }
+.sc-ch .rd.hot { color: #d81f1f; }
+.sc-hint { font-size: 7px; color: #6a6a65; letter-spacing: 1px; margin-top: 10px; }
+.sc-foot { display: flex; align-items: center; gap: 9px; padding: 10px 12px; border-top: 1px solid #333; }
+.sc-foot .k { font-size: 7px; color: #8a8a85; letter-spacing: 1px; }
+.sc-btn { font-style: normal; font-family: 'Archivo Black', sans-serif; font-size: 9px; background: #d81f1f; color: #0d0d0d; padding: 6px 13px; }
+
+.ip { font-family: 'JetBrains Mono', monospace; color: #f2f0e9; }
+.ip-top { display: flex; align-items: center; gap: 8px; padding: 9px 12px; border-bottom: 3px solid #f2f0e9; }
+.ip-top .lb { font-size: 7px; color: #d81f1f; letter-spacing: 1.5px; }
+.ip-top .t { font-family: 'Archivo Black', sans-serif; font-size: 14px; letter-spacing: -.4px; }
+.ip-top .sp { flex: 1; }
+.ip-top .go { font-style: normal; font-family: 'Archivo Black', sans-serif; font-size: 9px; background: #d81f1f; color: #0d0d0d; padding: 6px 12px; }
+.ip-screen { position: relative; border-bottom: 3px solid #f2f0e9; }
+.ip-screen .ga { height: 100px; }
+.ip-screen::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(0,0,0,.4) 0 1px, transparent 1px 3px); }
+.ip-chan { display: flex; flex-direction: column; gap: 7px; padding: 10px 12px; }
+.ip-row { display: flex; align-items: baseline; gap: 7px; }
+.ip-row .lb { flex: 0 0 52px; font-size: 6.5px; color: #8a8a85; letter-spacing: 1px; }
+.ip-row .v { font-size: 9px; line-height: 1.4; }
+.ip-row .v b { font-family: 'Archivo Black', sans-serif; color: #d81f1f; }
+.ip-verdict { display: flex; align-items: center; gap: 8px; padding: 9px 12px; border-top: 1px solid #333; }
+.ip-verdict .k { font-size: 6.5px; color: #8a8a85; letter-spacing: 1.5px; }
+.ip-verdict .v { font-family: 'Archivo Black', sans-serif; font-size: 10px; color: #50fa7b; margin-left: auto; }
+</style>
+
+<h2>As três direções, desenhadas</h2>
+<p class="subtitle">
+  Cada uma mostra a <strong>home</strong> (esquerda, mais larga) e a <strong>página de detalhe de um jogo</strong> (direita), em proporção real.
+  Paleta travada em todas: preto, off-white, vermelho, borda 3px, zero raio, zero sombra. As caps são ilustrações provisórias — na versão real são os screenshots dos jogos rodando.
+  Clica num card pra marcar.
+</p>
+
+<div class="cmp" id="cmp">
+
+<!-- ═══════════════ D1: PAINEL DE EMBARQUE ═══════════════ -->
+<div class="dir" data-pick="painel">
+  <div class="cap">
+    <span class="kick">GANHOU OS DOIS EIXOS</span>
+    <h3>Painel de embarque</h3>
+    <span class="why">a home é um painel ranqueado · a página do jogo é um bilhete segmentado</span>
+  </div>
+  <div class="panes">
+    <div class="pane">
+      <div class="lbl">home — /</div>
+      <div class="gb">
+        <div class="gb-top"><span class="gb-mark">ÓRBITA</span><span class="gb-sub">painel de jogos</span><span class="gb-sp"></span><span class="gb-nav">JOGOS</span><span class="gb-nav">SOBRE</span><span class="gb-nav dim">APOIAR</span></div>
+        <div class="gb-horizon"></div>
+        <div class="gb-kicker">2 PARTIDAS · SAÍDA IMEDIATA · SEM CHECK-IN</div>
+        <div class="gb-h1">Dois jogos.<br><em>Zero</em> embarque.</div>
+        <div class="gb-cols"><span class="gb-colh">VOO</span><span class="gb-colh c2">DESTINO</span><span class="gb-colh c2">CLASSE</span><span class="gb-colh c3">PROGRESSO</span><span class="gb-colh c4">ASSENTO</span></div>
+        <div class="gb-row"><span class="gb-seq">01</span><span class="gb-cell g2"><i class="gb-icn">✦</i>NAVINHA</span><span class="gb-cell c2 mono">SHOOT'EM UP</span><span class="gb-cell c3"><i class="gb-bar"><b style="width:44%"></b></i><em class="mono">11/25</em></span><span class="gb-cell c4"><i class="gb-go">JOGAR</i></span></div>
+        <div class="gb-row"><span class="gb-seq">02</span><span class="gb-cell g2"><i class="gb-icn">▣</i>DEFESA DA TERRA</span><span class="gb-cell c2 mono">TOWER DEF.</span><span class="gb-cell c3"><i class="gb-bar"><b style="width:13%"></b></i><em class="mono">2/15</em></span><span class="gb-cell c4"><i class="gb-go">JOGAR</i></span></div>
+        <div class="gb-row soon"><span class="gb-seq">—</span><span class="gb-cell g2">EM BREVE</span><span class="gb-cell c2 mono">—</span><span class="gb-cell c3 mono">—</span><span class="gb-cell c4"><i class="gb-no">AGUARDE</i></span></div>
+        <div class="gb-foot"><span class="mono">APOIO VIA PIX</span><span class="gb-sp"></span><i class="gb-support">APOIAR</i></div>
+      </div>
+    </div>
+    <div class="pane">
+      <div class="lbl">detalhe — /navinha</div>
+      <div class="bp">
+        <div class="bp-main">
+          <div class="bp-head"><span class="bp-seq mono">SEQ 01</span><span class="bp-dest">NAVINHA</span></div>
+          <div class="bp-scan"><div class="ga"><svg viewBox="0 0 92 49" preserveAspectRatio="xMidYMid slice"><rect width="92" height="49" fill="#050914"/><g fill="#8be9fd" opacity=".45"><rect x="7" y="9" width="2" height="2"/><rect x="30" y="5" width="2" height="2"/><rect x="63" y="12" width="2" height="2"/><rect x="82" y="6" width="2" height="2"/><rect x="18" y="30" width="2" height="2"/><rect x="50" y="38" width="2" height="2"/></g><rect x="52" y="26" width="3" height="3" fill="#ff79c6"/><rect x="47" y="30" width="3" height="3" fill="#ff79c6"/><path d="M44 24h6v4h-2v6h-6v-3h-6v-3h8z" fill="#f8b500"/><rect x="43" y="31" width="8" height="3" fill="#ff5555"/><rect x="46" y="34" width="2" height="4" fill="#f8b500"/><path d="M30 33h10v2H30z" fill="#50fa7b"/><g fill="#ff5555" opacity=".8"><rect x="44" y="41" width="4" height="2"/><rect x="41" y="44" width="10" height="2"/></g></svg></div><div class="bp-stripes"></div></div>
+          <div class="bp-seg"><span class="mono">CLASSE</span><b>SHOOT'EM UP VERTICAL</b></div>
+          <div class="bp-seg"><span class="mono">VOLUME</span><b>25 FASES · 10 NAVES · 4 CHEFES</b></div>
+          <div class="bp-seg"><span class="mono">REQUISITOS</span><b>NADA — RODA NO NAVEGADOR</b></div>
+        </div>
+        <div class="bp-stub">
+          <div class="bp-perf"></div>
+          <div class="bp-sth mono">PORTÃO</div><div class="bp-gate">01</div>
+          <div class="bp-sth mono">CLASSE</div><div class="bp-cls">GRÁTIS</div>
+          <div class="bp-sth mono">SISTEMA</div><div class="bp-sys">WEB / MOBILE</div>
+          <div class="bp-cta">JOGAR<br>AGORA</div>
+          <div class="bp-bars"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pick"><span class="btn">Construir esta</span><span class="note">painel ranqueado + bilhete segmentado e perfurado</span></div>
+</div>
+
+<!-- ═══════════════ D2: DORSO DE CAIXA / MANUAL ═══════════════ -->
+<div class="dir" data-pick="caixa">
+  <div class="cap">
+    <span class="kick grey">IMPECCABLE'S PICK</span>
+    <h3>Dorso de caixa e manual</h3>
+    <span class="why">densidade de especificação impressa, janela de captura, lista de conteúdo</span>
+  </div>
+  <div class="panes">
+    <div class="pane">
+      <div class="lbl">home — /</div>
+      <div class="bx">
+        <div class="bx-top"><span class="bx-mark">ÓRBITA</span><span class="bx-sp"></span><span class="bx-nav">JOGOS</span><span class="bx-nav">SOBRE</span><span class="bx-nav">APOIAR</span></div>
+        <div class="bx-hero">
+          <div class="ga"><svg viewBox="0 0 92 49" preserveAspectRatio="xMidYMid slice"><rect width="92" height="49" fill="#050914"/><g fill="#8be9fd" opacity=".45"><rect x="7" y="9" width="2" height="2"/><rect x="63" y="12" width="2" height="2"/><rect x="18" y="30" width="2" height="2"/><rect x="40" y="20" width="2" height="2"/></g><rect x="52" y="26" width="3" height="3" fill="#ff79c6"/><path d="M44 24h6v4h-2v6h-6v-3h-6v-3h8z" fill="#f8b500"/><rect x="43" y="31" width="8" height="3" fill="#ff5555"/><path d="M30 33h10v2H30z" fill="#50fa7b"/></svg></div>
+          <div class="rt">
+            <div class="k">EDIÇÃO 01 · 2 JOGOS</div>
+            <h1>Dois jogos.<br><u>Zero</u> download.</h1>
+            <div class="st">Shmup vertical e tower defense espacial. Ambos rodam inteiros no navegador — sem instalar nada, sem conta, sem loja.</div>
+            <div class="bx-cta"><i class="bx-btn">JOGAR AGORA</i><i class="bx-btn ghost">VER OS DOIS</i></div>
+          </div>
+        </div>
+        <div class="bx-specs">
+          <div class="bx-spec"><div class="l">01 / AÇÃO</div><div class="v">NAVINHA — CAMPANHA ORBITAL</div></div>
+          <div class="bx-spec"><div class="l">02 / ESTRATÉGIA</div><div class="v">DEFESA DA TERRA — ULTRA</div></div>
+          <div class="bx-spec"><div class="l">FASES</div><div class="v">25 NO PRIMEIRO · 15 NO SEGUNDO</div></div>
+          <div class="bx-spec"><div class="l">REQUISITOS</div><div class="v">NAVEGADOR. SÓ ISSO.</div></div>
+        </div>
+        <div class="bx-cont">
+          <div class="l">CONTROLES</div>
+          <div class="bx-keys"><span class="bx-key">SETAS</span><span class="bx-key">WASD</span><span class="bx-key">X BOMBA</span><span class="bx-key">M SOM</span><span class="bx-key">ESC MENU</span><span class="bx-key">TOQUE</span></div>
+          <div class="d">Ambos têm controle por toque. No celular o primeiro joga em retrato, o segundo em paisagem.</div>
+        </div>
+        <div class="bx-foot"><span class="mono">APOIO VOLUNTÁRIO VIA PIX</span><i class="bx-px">APOIAR</i></div>
+      </div>
+    </div>
+    <div class="pane">
+      <div class="lbl">detalhe — /navinha</div>
+      <div class="mn">
+        <div class="mn-top"><span class="seq">SEQ 01</span><span class="t">NAVINHA</span><span class="sp"></span><span class="mn-price">GRÁTIS</span></div>
+        <div class="mn-shot ga"><svg viewBox="0 0 92 49" preserveAspectRatio="xMidYMid slice"><rect width="92" height="49" fill="#050914"/><g fill="#8be9fd" opacity=".45"><rect x="7" y="9" width="2" height="2"/><rect x="30" y="5" width="2" height="2"/><rect x="63" y="12" width="2" height="2"/><rect x="82" y="6" width="2" height="2"/><rect x="18" y="30" width="2" height="2"/><rect x="50" y="38" width="2" height="2"/><rect x="40" y="20" width="2" height="2"/></g><rect x="52" y="26" width="3" height="3" fill="#ff79c6"/><rect x="47" y="30" width="3" height="3" fill="#ff79c6"/><path d="M44 24h6v4h-2v6h-6v-3h-6v-3h8z" fill="#f8b500"/><rect x="43" y="31" width="8" height="3" fill="#ff5555"/><rect x="46" y="34" width="2" height="4" fill="#f8b500"/><path d="M30 33h10v2H30z" fill="#50fa7b"/></svg></div>
+        <div class="mn-rows"><i class="mn-row"></i><i class="mn-row"></i><i class="mn-row"></i></div>
+        <div class="mn-body">
+          <p>Shoot'em up vertical estilo PS1. Dez naves com especialidade A/B, dezesseis inimigos, quatro chefes, vinte e cinco fases em cinco campanhas, power-ups e evolução roguelite durante a partida.</p>
+          <div class="mn-feats">
+            <div class="mn-feat"><span class="bx-n">■</span><span>10 naves, 2 especificidades cada</span></div>
+            <div class="mn-feat"><span class="bx-n">■</span><span>25 fases · 5 campanhas</span></div>
+            <div class="mn-feat"><span class="bx-n">■</span><span>4 chefes · 16 inimigos</span></div>
+          </div>
+        </div>
+        <div class="mn-cta"><i class="b">JOGAR</i><span class="mono">SEM DOWNLOAD</span><i class="mn-rate"><i class="off"></i><i class="off"></i><i class="off"></i></i></div>
+      </div>
+    </div>
+  </div>
+  <div class="pick"><span class="btn">Construir esta</span><span class="note">catálogo histórico do meio — risco: a forma mais óbvia da categoria</span></div>
+</div>
+
+<!-- ═══════════════ D3: OSCILOSCÓPIO ═══════════════ -->
+<div class="dir" data-pick="scope">
+  <div class="cap">
+    <span class="kick grey">COMPETITIVO</span>
+    <h3>Osciloscópio</h3>
+    <span class="why">toda afirmação é uma leitura medida sobre a retícula gravada</span>
+  </div>
+  <div class="panes">
+    <div class="pane">
+      <div class="lbl">home — /</div>
+      <div class="sc">
+        <div class="sc-top"><span class="sc-mark">ÓRBITA</span><span class="sc-sp"></span><span class="sc-nav">JOGOS</span><span class="sc-nav">SOBRE</span><span class="sc-nav">APOIAR</span></div>
+        <div class="sc-grat"><div class="sc-in">
+          <div class="sc-read"><span class="k">CH1 · CATÁLOGO</span><span class="v">2</span><span class="u">JOGOS</span><span class="sp" style="flex:1"></span><span class="k">CH2 · VOLUME</span><span class="v red">40</span><span class="u">FASES+MAPAS</span></div>
+          <div class="sc-meas">
+            <div class="sc-ch"><span class="lb">CH1</span><span class="nm">NAVINHA</span><span class="meter"><i class="fg" style="width:25%"></i><i class="tick"></i><i class="tick"></i><i class="tick"></i></span><span class="rd">25 FAS</span></div>
+            <div class="sc-ch"><span class="lb">CH1</span><span class="nm">NAVINHA</span><span class="meter"><i class="fg" style="width:100%"></i></span><span class="rd">10 NAV</span></div>
+            <div class="sc-ch"><span class="lb">CH1</span><span class="nm">NAVINHA</span><span class="meter"><i class="fg2" style="width:25%"></i><i class="tick"></i><i class="tick"></i><i class="tick"></i></span><span class="rd hot">4 CHEF</span></div>
+            <div class="sc-ch"><span class="lb">CH2</span><span class="nm">DEFESA</span><span class="meter"><i class="fg" style="width:15%"></i><i class="tick"></i><i class="tick"></i><i class="tick"></i><i class="tick"></i><i class="tick"></i><i class="tick"></i></span><span class="rd">15 MAP</span></div>
+            <div class="sc-ch"><span class="lb">CH2</span><span class="nm">DEFESA</span><span class="meter"><i class="fg" style="width:30%"></i><i class="tick"></i><i class="tick"></i><i class="tick"></i></span><span class="rd">10 TORR</span></div>
+          </div>
+          <div class="sc-hint">DIVISÕES = 10 · SEM INSTALAÇÃO · SEM CONTA · ABRA E JOGUE</div>
+        </div></div>
+        <div class="sc-foot"><span class="k">SAÍDA</span><i class="sc-btn">JOGAR NAVINHA</i><i class="sc-btn">JOGAR DEFESA</i><span class="sc-sp"></span><span class="k">PIX</span></div>
+      </div>
+    </div>
+    <div class="pane">
+      <div class="lbl">detalhe — /navinha</div>
+      <div class="ip">
+        <div class="ip-top"><span class="lb">CH1</span><span class="t">NAVINHA</span><span class="sp"></span><i class="go">JOGAR</i></div>
+        <div class="ip-screen"><div class="ga"><svg viewBox="0 0 92 49" preserveAspectRatio="xMidYMid slice"><rect width="92" height="49" fill="#050914"/><g fill="#8be9fd" opacity=".45"><rect x="7" y="9" width="2" height="2"/><rect x="30" y="5" width="2" height="2"/><rect x="63" y="12" width="2" height="2"/><rect x="82" y="6" width="2" height="2"/><rect x="18" y="30" width="2" height="2"/><rect x="50" y="38" width="2" height="2"/><rect x="40" y="20" width="2" height="2"/></g><rect x="52" y="26" width="3" height="3" fill="#ff79c6"/><rect x="47" y="30" width="3" height="3" fill="#ff79c6"/><path d="M44 24h6v4h-2v6h-6v-3h-6v-3h8z" fill="#f8b500"/><rect x="43" y="31" width="8" height="3" fill="#ff5555"/><rect x="46" y="34" width="2" height="4" fill="#f8b500"/><path d="M30 33h10v2H30z" fill="#50fa7b"/><g fill="#ff5555" opacity=".8"><rect x="44" y="41" width="4" height="2"/><rect x="41" y="44" width="10" height="2"/></g></svg></div></div>
+        <div class="ip-chan">
+          <div class="ip-row"><span class="lb">GÊNERO</span><span class="v">Shoot'em up <b>vertical</b></span></div>
+          <div class="ip-row"><span class="lb">FASES</span><span class="v"><b>25</b> em 5 campanhas</span></div>
+          <div class="ip-row"><span class="lb">CHEFES</span><span class="v"><b>4</b> nomeados</span></div>
+          <div class="ip-row"><span class="lb">REQUISITO</span><span class="v">nenhum</span></div>
+        </div>
+        <div class="ip-verdict"><span class="k">VEREDITO</span><span class="v">RODA AGORA</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pick"><span class="btn">Construir esta</span><span class="note">medir é o que "prove, don't claim" significa — mas perde identificação</span></div>
+</div>
+
+</div>
+
+<script>
+document.querySelectorAll('.dir').forEach(function (d) {
+  d.addEventListener('click', function () {
+    var on = d.classList.contains('sel');
+    document.querySelectorAll('.dir').forEach(function (x) { x.classList.remove('sel'); });
+    if (!on) d.classList.add('sel');
+  });
+});
+</script>

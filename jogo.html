@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAVINHA — Campanha Orbital</title>
+  <meta name="theme-color" content="#050914">
+  <link rel="icon" type="image/png" href="assets/ship_falcao.png">
+  <link rel="stylesheet" href="css/game-fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="crt" aria-hidden="true"></div>
+  <div id="err" hidden></div>
+  <div id="game-canvas"></div>
+  <script>
+    window.__errors = [];
+    window.addEventListener('error', function (e) {
+      window.__errors.push(String(e.message) + '@' + String(e.filename || '') + ':' + String(e.lineno || ''));
+      var d = document.getElementById('err');
+      if (d) { d.hidden = false; d.textContent = 'ERR:' + window.__errors.join('|'); }
+    });
+    window.addEventListener('unhandledrejection', function (e) {
+      window.__errors.push('REJ:' + String(e.reason));
+      var d = document.getElementById('err');
+      if (d) { d.hidden = false; d.textContent = 'ERR:' + window.__errors.join('|'); }
+    });
+  </script>
+  <script src="js/phaser.min.js"></script>
+  <script src="js/game-data.js"></script>
+  <script src="js/game-art.js"></script>
+  <script src="js/game-audio.js"></script>
+  <script src="js/weapons.js"></script>
+  <script src="js/enemies-ai.js"></script>
+  <script src="js/campaign.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/scene-boot.js"></script>
+  <script src="js/scene-menu.js"></script>
+  <script src="js/scene-stage.js"></script>
+  <script src="js/scene-result.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

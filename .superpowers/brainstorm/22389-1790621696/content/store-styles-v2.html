@@ -1,0 +1,174 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;700&display=swap');
+
+.st { background: #0d0d0d; color: #f2f0e9; font-family: 'Archivo Black', Impact, sans-serif;
+  border: 3px solid #f2f0e9; overflow: hidden; font-size: 0; line-height: 0; }
+.st * { line-height: 1.3; }
+.st .hd { display: flex; align-items: baseline; gap: 14px; padding: 14px 22px; border-bottom: 3px solid #f2f0e9; }
+.st .hd .lg { font-size: 22px; letter-spacing: -1px; text-transform: uppercase; }
+.st .hd .lg em { font-style: normal; color: #d81f1f; }
+.st .hd .tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #d81f1f;
+  text-transform: uppercase; letter-spacing: 1px; }
+.st .hd .sp { flex: 1; }
+.st .hd a { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #f2f0e9;
+  text-decoration: none; text-transform: uppercase; }
+.st .hd a:hover { color: #d81f1f; }
+.st .hero { padding: 34px 22px 26px; border-bottom: 3px solid #f2f0e9; display: flex; gap: 28px; align-items: flex-end; }
+.st .hero .k { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #d81f1f;
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+.st .hero h1 { font-size: 52px; line-height: .86; text-transform: uppercase; letter-spacing: -3px; margin: 0; }
+.st .hero h1 u { text-decoration: none; background: #d81f1f; color: #0d0d0d; padding: 0 8px; }
+.st .hero .r { flex: 1; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8a8a85; }
+.st .list { display: grid; grid-template-columns: 1fr 1fr; }
+.st .it { padding: 18px 22px 22px; border-right: 3px solid #f2f0e9; }
+.st .it:last-child { border-right: 0; }
+.st .cap { height: 150px; border: 3px solid #f2f0e9; overflow: hidden; }
+.st .cap svg { display: block; width: 100%; height: 100%; }
+.st .it .n { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #d81f1f; margin-top: 12px; letter-spacing: 1px; }
+.st .it h2 { font-size: 26px; text-transform: uppercase; letter-spacing: -1.2px; margin: 4px 0 6px; line-height: .95; }
+.st .it .d { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #a8a8a0; line-height: 1.6; }
+.st .it .foot { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+.st .pr { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
+  border: 2px solid #f2f0e9; padding: 5px 10px; }
+.st .go { font-family: 'Archivo Black', sans-serif; font-size: 12px; text-transform: uppercase;
+  background: #d81f1f; color: #0d0d0d; padding: 8px 18px; }
+.st .it .foot .sp { flex: 1; }
+.st .sup { border-top: 3px solid #f2f0e9; padding: 18px 22px; display: flex; align-items: center; gap: 20px; }
+.st .sup .t { font-family: 'Archivo Black', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -.8px; }
+.st .sup .sp { flex: 1; }
+.st .sup .p { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8a8a85; }
+.st .sup .b { font-family: 'Archivo Black', sans-serif; font-size: 11px; text-transform: uppercase;
+  border: 3px solid #f2f0e9; padding: 8px 16px; }
+.notes { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+.notes ul { margin: .4rem 0 0; padding-left: 1.1rem; }
+.notes li { font-size: .8rem; color: var(--text-secondary); margin-bottom: .3rem; }
+</style>
+
+<h2>E invertido — versão refinada</h2>
+<p class="subtitle">
+  Mesmo conteúdo do mockup anterior, agora em preto puro com vermelho de destaque.
+  Este é o layout real da home que vou construir. <strong>"ARCADE" é nome provisório</strong> — me fale o nome depois.
+</p>
+
+<div class="mockup">
+  <div class="mockup-header">Preview: home da loja em tela cheia</div>
+  <div class="mockup-body" style="padding:0">
+    <div class="st">
+
+      <div class="hd">
+        <span class="lg">ARCA<em>DE</em></span>
+        <span class="tag">loja de jogos</span>
+        <span class="sp"></span>
+        <a>Jogos</a><a>Sobre</a><a>Apoiar</a>
+      </div>
+
+      <div class="hero">
+        <div>
+          <div class="k">2 jogos · grátis · no navegador</div>
+          <h1>Dois jogos.<br><u>Zero</u> download.</h1>
+        </div>
+        <div class="r">shmup vertical<br>tower defense espacial</div>
+      </div>
+
+      <div class="list">
+        <div class="it">
+          <div class="cap">
+            <svg viewBox="0 0 92 49" preserveAspectRatio="xMidYMid slice">
+              <rect width="92" height="49" fill="#050914"/>
+              <g fill="#8be9fd" opacity=".45">
+                <rect x="7" y="9" width="2" height="2"/><rect x="30" y="5" width="2" height="2"/>
+                <rect x="63" y="12" width="2" height="2"/><rect x="82" y="6" width="2" height="2"/>
+                <rect x="18" y="30" width="2" height="2"/><rect x="50" y="38" width="2" height="2"/>
+                <rect x="40" y="20" width="2" height="2"/><rect x="12" y="20" width="2" height="2"/>
+              </g>
+              <rect x="52" y="26" width="3" height="3" fill="#ff79c6"/>
+              <rect x="47" y="30" width="3" height="3" fill="#ff79c6"/>
+              <path d="M44 24h6v4h-2v6h-6v-3h-6v-3h8z" fill="#f8b500"/>
+              <rect x="43" y="31" width="8" height="3" fill="#ff5555"/>
+              <rect x="46" y="34" width="2" height="4" fill="#f8b500"/>
+              <path d="M30 33h10v2H30z" fill="#50fa7b"/>
+              <g fill="#ff5555" opacity=".8"><rect x="44" y="41" width="4" height="2"/><rect x="41" y="44" width="10" height="2"/></g>
+            </svg>
+          </div>
+          <div class="n">01 / AÇÃO</div>
+          <h2>Navinha — Campanha Orbital</h2>
+          <div class="d">Shmup vertical estilo PS1. 10 naves, 16 inimigos, 4 chefes, 25 fases, power-ups e evolução roguelite.</div>
+          <div class="foot">
+            <span class="pr">GRÁTIS</span>
+            <span class="go">Jogar</span>
+            <span class="sp"></span>
+            <span class="p">PC · MOBILE</span>
+          </div>
+        </div>
+
+        <div class="it">
+          <div class="cap">
+            <svg viewBox="0 0 92 49" preserveAspectRatio="xMidYMid slice">
+              <rect width="92" height="49" fill="#0f1a10"/>
+              <rect x="4" y="4" width="84" height="41" fill="#2a4a2a"/>
+              <rect x="10" y="10" width="72" height="29" fill="#1b3a20"/>
+              <g fill="#ffb000">
+                <rect x="14" y="14" width="4" height="4"/><rect x="34" y="14" width="4" height="4"/>
+                <rect x="54" y="14" width="4" height="4"/><rect x="74" y="14" width="4" height="4"/>
+                <rect x="24" y="24" width="4" height="4"/><rect x="44" y="24" width="4" height="4"/>
+                <rect x="64" y="24" width="4" height="4"/>
+              </g>
+              <g fill="#50fa7b">
+                <rect x="14" y="30" width="4" height="4"/><rect x="34" y="30" width="4" height="4"/>
+                <rect x="44" y="30" width="4" height="4"/><rect x="24" y="30" width="4" height="4"/>
+              </g>
+              <rect x="54" y="30" width="24" height="4" fill="#ff5555"/>
+              <rect x="54" y="28" width="16" height="8" fill="#ff5555" opacity=".3"/>
+              <g fill="#50fa7b" opacity=".55">
+                <rect x="19" y="11" width="4" height="1"/><rect x="39" y="11" width="4" height="1"/>
+                <rect x="69" y="19" width="4" height="1"/><rect x="29" y="19" width="4" height="1"/>
+              </g>
+            </svg>
+          </div>
+          <div class="n">02 / ESTRATÉGIA</div>
+          <h2>Defesa da Terra — Ultra</h2>
+          <div class="d">Tower defense espacial. 15 mapas do sistema solar, 3 dificuldades, 10 torres, fusão de unidades e recursos de frota.</div>
+          <div class="foot">
+            <span class="pr">GRÁTIS</span>
+            <span class="go">Jogar</span>
+            <span class="sp"></span>
+            <span class="p">PC · MOBILE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sup">
+        <span class="t">Apoie o<br>desenvolvimento</span>
+        <span class="p">PIX · qualquer valor</span>
+        <span class="sp"></span>
+        <span class="b">Apoiar</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="notes">
+  <div class="pros-cons" style="margin:0">
+    <div class="pros">
+      <h4>Tem nesse layout</h4>
+      <ul>
+        <li>Header fixo com logo + 3 links</li>
+        <li>Hero com statement curto</li>
+        <li>2 jogos lado a lado com nº, gênero, capa, descrição, preço e botão</li>
+        <li>Banda de apoio PIX</li>
+        <li>Bordas de 3px, zero raio, zero sombra, zero gradiente</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <h4>Ainda em aberto</h4>
+      <ul>
+        <li>Nome da loja (ARCA<strong>DE</strong> é provisório)</li>
+        <li>Se as caps serão as screenshots reais ou artwork nova</li>
+        <li>Se existe página de detalhe por jogo além da home</li>
+        <li>Se o bloco PIX é por jogo ou único no rodapé</li>
+        <li>Comportamento no celular (2 colunas → 1?)</li>
+      </ul>
+    </div>
+  </div>
+</div>

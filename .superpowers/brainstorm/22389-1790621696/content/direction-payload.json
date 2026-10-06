@@ -1,0 +1,102 @@
+{
+  "question": "ÓRBITA é a vitrine de portfólio de um dev solo: dois jogos que rodam inteiros no navegador, sem download, sem conta, sem loja. A página precisa provar que o trabalho existe em volume real (25 fases, 15 mapas) e que dá pra jogar em um clique. Qual forma a home e a página de jogo devem ter?",
+  "note": "A paleta e a tipografia já estão travadas por você: preto #0d0d0d, off-white #f2f0e9, vermelho #d81f1f, borda de 3px, zero raio, zero sombra, zero gradiente, Archivo Black + JetBrains Mono. O que muda aqui é só a FORMA — de onde vem a linguagem visual. Pode clicar em mais de um se quiser misturar.",
+  "options": [
+    {
+      "id": "challenger-vernacular-ephemera-boarding-pass-and-gate-board",
+      "kicker": "GANHOU OS DOIS EIXOS",
+      "title": "Bilhete de embarque + painel de embarque",
+      "body": "A home vira um painel de embarque: linhas em colunas fixas, ordenadas por número de sequência, figures tabulares, uma cor de alerta reservada para mudança. A página de cada jogo vira um bilhete segmentado e perfurado — o screenshot real do jogo é o bloco escaneável, o número de sequência é o id, e a ficha técnica são os segmentos impressos. JOGAR é o destino do bilhete.",
+      "why": "Identificação: forte. Um painel é uma lista ranqueada que se lê em dez segundos — é literalmente o que uma vitrine é. Clareza: forte. O segmento do bilhete já é imagem + número + preço + ação, que é a página de produto que a galera reconhece. E é a forma que uma loja de jogos teve antes de existir loja online.",
+      "detail": [
+        "Paleta e material: painéis neutros de alto contraste, um único vermelho reservado para alerta e mudança, e o bloco monoespaçado como única textura",
+        "Composição: o painel ordena por sequência; o bilhete divide-se em segmentos rotulados com figures tabulares",
+        "Topologia: você navega assistindo um ranking, não procurando numa lista",
+        "Controles e estado: a linha do jogo é o próprio controle; estado alterado acende o vermelho e segura; item indisponível sai do painel",
+        "Responsivo: colunas do painel caem por prioridade; os segmentos do bilhete empilham; a animação é uma linha rerankando no lugar"
+      ],
+      "verdict": "wins",
+      "raises": [
+        "DO SALÃO DE ESPELHO: a home abre com uma faixa de largura total e uma régua de horizonte, e toda linha abaixo é assentada nessa mesma régua.",
+        "DOS JARROS DE SALMOURA: cada linha mostra o progresso real lido do localStorage daquele jogo — quanto a pessoa que chegou já zerou.",
+        "DA ÁREA DE TRABALHO DE UM BIT: a loja inteira se limita a três cores e nunca introduz uma quarta.",
+        "DO MAPA DE PERGAMINHO: uma régua vermelha é a espinha da página, do símbolo da loja até o bloco de apoio, e toda coluna se assenta nela."
+      ]
+    },
+    {
+      "id": "grounded-1-box-back",
+      "kicker": "IMPECCABLE'S PICK",
+      "title": "O dorso da caixa e o manual do cartucho",
+      "body": "A home é o dorso de uma caixa de jogo: bloco de especificações denso, lista de CONTEÚDO,-legal miúdo, capturas em dither, caixa de classificação, faixa de ícones de plataforma, marca do editor no rodapé. A página do jogo é a página do manual, com a janela de captura e os controles impressos como diagrama.",
+      "why": "Identificação: forte — é o catálogo histórico do próprio meio, não uma referência emprestada. Clareza: forte, porque é literalmente a forma que um jogo sempre teve para se descrever.",
+      "detail": [
+        "O peso está na densidade de especificação: contagens reais, controles, requisitos, tudo impresso como se fosse o dorso da caixa",
+        "Risco honesto: é a direção mais óbvia da categoria. Quem já viu vitrine de jogo já reconhece antes de ler."
+      ],
+      "verdict": "pick"
+    },
+    {
+      "id": "challenger-scientific-notation-oscilloscope-signal-bench",
+      "kicker": "COMPETITIVO",
+      "title": "Osciloscópio no banco de sinais",
+      "body": "Todo número da loja é uma leitura medida sobre uma retícula gravada: contagens como mostradores de sete segmentos, cada afirmação situada numa divisão da grade, âmbar nos estados de aviso.",
+      "why": "Identificação: moderada — lê como rigor de engenharia para um avaliador técnico. Clareza: forte, porque medir é o que 'prove, don't claim' significa. Segura só um eixo.",
+      "detail": [
+        "Alternativa completa, se você quiser a loja falar em mostradores e escala em vez de bilhete e painel"
+      ],
+      "verdict": "competitive"
+    },
+    {
+      "id": "challenger-light-shadow-caustics-indoor-weather-sun",
+      "kicker": "DECLINADO — kept: o salão de espelho",
+      "title": "Sol de meteorologia num salão com teto espelhado",
+      "body": "A loja como salão de exposição âmbar, os dois jogos duplicados num teto espelhado, silhueta preta sobre neblina.",
+      "why": "Perde nos dois eixos: o reflexo esconde o 'clica e joga', e a sala não lê como portfólio de jogo.",
+      "verdict": "declined",
+      "kept": "Um único registro horizontal vasto que faz a página ser uma sala e não uma lista. Isso virou a faixa de horizonte da home."
+    },
+    {
+      "id": "challenger-food-fermentation-culinary-theater-pickling-brine-calendar",
+      "kicker": "DECLINADO — kept: os jarros de salmoura",
+      "title": "Calendário de salmoura em potes",
+      "body": "Cada jogo como um pote maturando; catálogo por estágio de fermentação, com contagem de dias.",
+      "why": "Perde nos dois eixos: 'estágio de fermentação' não mapeia em 'fase 7 de 25', e a metamorfose não descreve um jogo.",
+      "verdict": "declined",
+      "kept": "Progressão visível como estado datado do próprio visitante. Isso virou a barra de progresso real por linha, lida do localStorage."
+    },
+    {
+      "id": "challenger-medium-native-one-bit-desktop",
+      "kicker": "DECLINADO — kept: a área de trabalho de um bit",
+      "title": "Área de trabalho de um bit",
+      "body": "Desktop monocromático com dither ordenado no lugar de cada cinza, janelas com barra de título e caixa de fechar, seleção com formigas marchando.",
+      "why": "Identificação moderada, clareza fraca: a metáfora de desktop esconde que aquilo é uma loja, e o dither briga com a arte saturada dos dois jogos.",
+      "verdict": "declined",
+      "kept": "Limite de material declarado uma vez e obedecido em absoluto. A loja se limita a três cores e nunca introduz uma quarta."
+    },
+    {
+      "id": "challenger-wayfinding-cartography-signage-salt-stiffened-treasure-map",
+      "kicker": "DECLINADO — kept: o mapa de pergaminho",
+      "title": "Mapa do tesouro em pergaminho salgado",
+      "body": "Navegação como inferência: rosa dos ventos, canto faltando, marcas de maré, uma rota vermelha apagada que aparece sob luz oblíqua.",
+      "why": "Perde nos dois eixos: implica mistério, e a afirmação do produto é zero atrito e zero mistério. O material — pergaminho, sépia, letra de mão — é justamente o padrão cream-e-serif que a calibração alerta.",
+      "verdict": "declined",
+      "kept": "Uma linha desenhada que carrega a página inteira. Uma régua vermelha virou a espinha da loja, do símbolo até o bloco de apoio."
+    },
+    {
+      "id": "canon",
+      "kicker": "SAÍDA PERMANENTE",
+      "title": "A loja convencional",
+      "body": "A vitrine padrão da categoria, jogada a sério: fundo azul-cinza escuro, uma linha horizontal por jogo com a capa à esquerda, título e etiquetas à direita, e um botão de compra à direita. Sem ironia, sem truque de estilo. Se escolher esta, eu executo em fidelidade total e uso o nível de acabamento de Ito, Supertype e Vlambeer como régua.",
+      "verdict": "canon"
+    }
+  ],
+  "reroll": {
+    "enabled": true,
+    "registers": [
+      { "id": "plain", "label": "Outra mão", "hint": "sorteio novo, mesmo espectro" },
+      { "id": "safer", "label": "Mais seguro", "hint": "candidatos convencionais que ainda estão de pé, mais o padrão contra os nomeados" },
+      { "id": "bolder", "label": "Mais ousado", "hint": "só formas estrangeiras, com compromisso total" }
+    ]
+  },
+  "steer": { "enabled": true, "hint": "Uma linha dizendo o que está faltando." }
+}
